@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dzuba_PZ9</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>dzuba7</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7312,7 +7312,6 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
-                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7511,224 +7510,301 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4c78531-c5bb-4fc6-8f40-a08395b186c4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31cd3f60-d1c0-4292-ba0c-cbbdfc13b7dc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="%D0%9A%D0%BE%D0%B4%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%93%D0%B0%D1%84%D0%BC%D0%B5%D0%BD%D0%B0">Кодування Гафмена<a class="anchor-link" href="#%D0%9A%D0%BE%D0%B4%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%93%D0%B0%D1%84%D0%BC%D0%B5%D0%BD%D0%B0">¶</a></h2><h3 id="%D0%92%D1%85%D1%96%D0%B4%D0%BD%D0%B8%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82:-AAAABBBBCCCCDDDDAAAABBBBCCCCDDDD">Вхідний текст: AAAABBBBCCCCDDDDAAAABBBBCCCCDDDD<a class="anchor-link" href="#%D0%92%D1%85%D1%96%D0%B4%D0%BD%D0%B8%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82:-AAAABBBBCCCCDDDDAAAABBBBCCCCDDDD">¶</a></h3><hr/>
-<h3 id="%D0%A7%D0%B0%D1%81%D1%82%D0%BE%D1%82%D0%B8-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2:">Частоти символів:<a class="anchor-link" href="#%D0%A7%D0%B0%D1%81%D1%82%D0%BE%D1%82%D0%B8-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2:">¶</a></h3><table>
-<thead>
-<tr>
-<th>Символ</th>
-<th>Кількість</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>8</td>
-</tr>
-<tr>
-<td>B</td>
-<td>8</td>
-</tr>
-<tr>
-<td>C</td>
-<td>8</td>
-</tr>
-<tr>
-<td>D</td>
-<td>8</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Усі символи мають однакову частоту — це дає <strong>симетричне дерево</strong>.</p>
-</blockquote>
-<hr/>
-<h3 id="%D0%9F%D0%BE%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0">Побудова дерева<a class="anchor-link" href="#%D0%9F%D0%BE%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0">¶</a></h3><p>Для рівномірних частот дерево Гафмена створює двійкові коди довжиною 2 біта. Наприклад:</p>
-<table>
-<thead>
-<tr>
-<th>Символ</th>
-<th>Код</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>00</td>
-</tr>
-<tr>
-<td>B</td>
-<td>01</td>
-</tr>
-<tr>
-<td>C</td>
-<td>10</td>
-</tr>
-<tr>
-<td>D</td>
-<td>11</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Це відповідає найкращому випадку.</p>
-</blockquote>
-<hr/>
-<h3 id="%D0%97%D0%B0%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82">Закодований текст<a class="anchor-link" href="#%D0%97%D0%B0%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D1%82%D0%B5%D0%BA%D1%81%D1%82">¶</a></h3><p>Закодований рядок має довжину <strong>128 біт</strong>.</p>
-<ul>
-<li>Кількість символів: 32</li>
-<li>Кожен символ кодується 2 бітами (оптимально)</li>
-</ul>
-<hr/>
-<h3 id="%D0%9E%D1%86%D1%96%D0%BD%D0%BA%D0%B0-%D0%B5%D1%84%D0%B5%D0%BA%D1%82%D1%83-%D0%B2%D1%96%D0%B4-%D1%81%D1%82%D0%B8%D1%81%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F">Оцінка ефекту від стиснення<a class="anchor-link" href="#%D0%9E%D1%86%D1%96%D0%BD%D0%BA%D0%B0-%D0%B5%D1%84%D0%B5%D0%BA%D1%82%D1%83-%D0%B2%D1%96%D0%B4-%D1%81%D1%82%D0%B8%D1%81%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F">¶</a></h3><table>
-<thead>
-<tr>
-<th>Випадок</th>
-<th>Розмір (в бітах)</th>
-<th>Коментар</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ASCII (8 біт)</td>
-<td>256</td>
-<td>Неоптимальний</td>
-</tr>
-<tr>
-<td>Гафмен</td>
-<td>128</td>
-<td>Оптимальне стиснення</td>
-</tr>
-<tr>
-<td>Найгірший випадок</td>
-<td>160-256</td>
-<td>Якщо символи мали різні коди довжини</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Таким чином, ми зекономили 50% пам’яті порівняно з ASCII.</p>
-</blockquote>
-<hr/>
-<h2 id="%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">Контрольні питання<a class="anchor-link" href="#%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">¶</a></h2><ol>
-<li><p><strong>Що таке кодування Гафмена та як воно працює?</strong><br/>
-Це алгоритм безвтратного стиснення, який присвоює коротші коди символам з більшою частотою. Будується дерево, де листками є символи, а шляхи до них — коди.</p>
-</li>
-<li><p><strong>Як визначається оптимальний двійковий код?</strong><br/>
-Алгоритм будує бінарне дерево за принципом злиття найменш вірогідних символів, забезпечуючи мінімальну середню довжину коду.</p>
-</li>
-<li><p><strong>Переваги над іншими методами:</strong></p>
-<ul>
-<li>Оптимальний для відомих частот</li>
-<li>Простий у реалізації</li>
-<li>Гарантовано без втрат</li>
-</ul>
-</li>
-<li><p><strong>Як відбувається декодування?</strong><br/>
-За допомогою дерева: кожен біт веде ліворуч (0) або праворуч (1), і при досягненні листа ми відновлюємо символ.</p>
-</li>
-<li><p><strong>Можливі недоліки:</strong></p>
-<ul>
-<li>Не працює ефективно при малій кількості унікальних символів</li>
-<li>Необхідно зберігати таблицю або дерево для декодування</li>
-</ul>
-</li>
-<li><p><strong>Для чого дерево?</strong><br/>
-Дерево дозволяє уникнути двозначності коду та забезпечує однозначне декодування.</p>
-</li>
-</ol>
+<h1 id="%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%E2%84%967.%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%B8-%D0%BD%D0%B0-%D1%80%D1%8F%D0%B4%D0%BA%D0%B0%D1%85">Практична робота №7.Алгоритми на рядках<a class="anchor-link" href="#%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%E2%84%967.%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%B8-%D0%BD%D0%B0-%D1%80%D1%8F%D0%B4%D0%BA%D0%B0%D1%85">¶</a></h1><h2 id="%D0%9F%D1%96%D0%B4%D0%B3%D0%BE%D1%82%D1%83%D0%B2%D0%B0%D0%B2:-%D0%A1%D0%B0%D1%94%D0%BD%D0%BA%D0%BE-%D0%9E%D0%BB%D0%B5%D0%BA%D1%81%D1%96%D0%B9">Зробив Дзюба Данiiл<a class="anchor-link" href="#%D0%9F%D1%96%D0%B4%D0%B3%D0%BE%D1%82%D1%83%D0%B2%D0%B0%D0%B2:-%D0%A1%D0%B0%D1%94%D0%BD%D0%BA%D0%BE-%D0%9E%D0%BB%D0%B5%D0%BA%D1%81%D1%96%D0%B9">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ead17f73-f693-4ec6-a74f-635d1f188b77">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b71c186e-0fa2-4b05-8ae4-28ea29a3ad23">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">heapq</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-
-<span class="c1"># Вхідний текст</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"AAAABBBBCCCCDDDDAAAABBBBCCCCDDDD"</span>
-
-<span class="c1"># Частоти символів</span>
-<span class="n">freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Частоти символів:"</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
-
-<span class="c1"># Побудова дерева Гафмена</span>
-<span class="n">heap</span> <span class="o">=</span> <span class="p">[[</span><span class="n">weight</span><span class="p">,</span> <span class="p">[</span><span class="n">symbol</span><span class="p">,</span> <span class="s2">""</span><span class="p">]]</span> <span class="k">for</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-<span class="n">heapq</span><span class="o">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
-
-<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">lo</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
-    <span class="n">hi</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">lo</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-        <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'0'</span> <span class="o">+</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">hi</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-        <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">+</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">[</span><span class="n">lo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">hi</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">lo</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hi</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-
-<span class="c1"># Отримання кодів</span>
-<span class="n">huff_codes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">heap</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">p</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Коди Гафмена:"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">huff_codes</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># Закодувати текст</span>
-<span class="n">encoded_text</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">huff_codes</span><span class="p">)[</span><span class="n">char</span><span class="p">]</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Закодований текст:"</span><span class="p">,</span> <span class="n">encoded_text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Довжина закодованого тексту (в бітах):"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">encoded_text</span><span class="p">))</span>
-
-<span class="c1"># Для оцінки:</span>
-<span class="n">original_bits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span>  <span class="c1"># 8 біт на символ в ASCII</span>
-<span class="n">best_case</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>      <span class="c1"># якщо бітів на символ = 2 (т.к. 4 символи = 2 біта)</span>
-<span class="n">worst_case</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="n">code</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">huff_codes</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Оцінка ефективності:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Початкова довжина (ASCII): </span><span class="si">{</span><span class="n">original_bits</span><span class="si">}</span><span class="s2"> біт"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Стиснуто (Гафмен): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">encoded_text</span><span class="p">)</span><span class="si">}</span><span class="s2"> біт"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Найгірший випадок (однакові довжини): </span><span class="si">{</span><span class="n">worst_case</span><span class="si">}</span><span class="s2"> біт"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Найкращий випадок (по 2 біта на символ): </span><span class="si">{</span><span class="n">best_case</span><span class="si">}</span><span class="s2"> біт"</span><span class="p">)</span>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="1.-%D0%9C%D0%B0%D1%94%D0%BC%D0%BE-%D0%B4%D0%B2%D1%96-%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D1%96-%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2:-%C2%ABABCDE%C2%BB-%D1%96-%C2%ABXYZABCD%C2%BB.">1. Маємо дві короткі послідовності символів: «ABCDE» і «XYZABCD».<a class="anchor-link" href="#1.-%D0%9C%D0%B0%D1%94%D0%BC%D0%BE-%D0%B4%D0%B2%D1%96-%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D1%96-%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2:-%C2%ABABCDE%C2%BB-%D1%96-%C2%ABXYZABCD%C2%BB.">¶</a></h2><h2 id="%D0%97%D0%BD%D0%B0%D0%B9%D1%82%D0%B8-%D0%BD%D0%B0%D0%B9%D0%B4%D0%BE%D0%B2%D1%88%D1%83-%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D0%BD%D1%83-%D0%BF%D1%96%D0%B4%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2,-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D1%83%D1%8E%D1%87%D0%B8-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC">Знайти найдовшу спільну підпослідовності символів, використовуючи алгоритм<a class="anchor-link" href="#%D0%97%D0%BD%D0%B0%D0%B9%D1%82%D0%B8-%D0%BD%D0%B0%D0%B9%D0%B4%D0%BE%D0%B2%D1%88%D1%83-%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D0%BD%D1%83-%D0%BF%D1%96%D0%B4%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%81%D0%B8%D0%BC%D0%B2%D0%BE%D0%BB%D1%96%D0%B2,-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D1%83%D1%8E%D1%87%D0%B8-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC">¶</a></h2><h2 id="%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D1%96%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F.">динамічного програмування.<a class="anchor-link" href="#%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D1%96%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F.">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=327f9319-a224-48b3-bf39-e81fe53ca56d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ol>
+<li>Вхідні послідовності:</li>
+</ol>
+<ul>
+<li>«ABCDE» - 5 символів</li>
+<li>«XYZABCD» - 7 символів</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c613142-5d5c-4ba9-88b4-6531e41c1b8b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>A</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42472138-fb1a-4232-9575-75880185fbf9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Далі розписуємо за:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">S1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">S2</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="err">```</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ad6d847f-efd2-4dcf-899f-a4ff2826e6c0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Частоти символів: Counter({'A': 8, 'B': 8, 'C': 8, 'D': 8})
-
-Коди Гафмена:
-A: 00
-B: 01
-C: 10
-D: 11
-
-Закодований текст: 0000000001010101101010101111111100000000010101011010101011111111
-Довжина закодованого тексту (в бітах): 64
-
-Оцінка ефективності:
-Початкова довжина (ASCII): 256 біт
-Стиснуто (Гафмен): 64 біт
-Найгірший випадок (однакові довжини): 64 біт
-Найкращий випадок (по 2 біта на символ): 64 біт
-</pre>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>A</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>E</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=469ff3ab-d93e-4f4b-af82-0bc9eb2932f5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Отже, результат — "ABCD"</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37614196-2257-4924-80e2-1b45485fad8d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="2.-%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">2. Контрольні питання<a class="anchor-link" href="#2.-%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c3c7a54-c56b-427a-9c08-0c744f9c0d09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li>У чому суть задачі знаходження LCS?</li>
+</ul>
+<p>Задача полягає в тому, щоб визначити найдовшу підпослідовність символів, яка зустрічається у двох або більше рядках у тому ж порядку, але не обов’язково підряд.</p>
+<ul>
+<li>Які основні методи використовують для знаходження LCS?</li>
+</ul>
+<p>Найпоширеніші методи:динамічне програмування,рекурсивний підхід,алгоритм Хіршберга (Hirschberg, не Хаббард),повний перебір.</p>
+<ul>
+<li>Як працює алгоритм динамічного програмування для LCS?</li>
+</ul>
+<p>Створюється таблиця, де кожна клітинка відображає довжину спільної підпослідовності між префіксами обох рядків. Значення обчислюються на основі попередніх результатів, залежно від того, чи співпадають символи, чи ні.</p>
+<ul>
+<li>Як працює алгоритм Хіршберга для LCS?</li>
+</ul>
+<p>Алгоритм поділяє одну з послідовностей навпіл, а другу — порівнює з кожною частиною, використовуючи динамічне програмування. Одна з половин обробляється у зворотному порядку, щоб знайти точку оптимального поділу, після чого результат об'єднується. Метод зменшує використання пам’яті.</p>
+<ul>
+<li>Які переваги і недоліки мають методи динамічного програмування та Хіршберга?</li>
+</ul>
+<p>Динамічне програмування: просте у реалізації, але споживає багато пам’яті при великих рядках.</p>
+<p>Хіршберг: ефективніший по пам’яті (O(n) замість O(n×m)), але складніший у реалізації і часто повільніший через рекурсивну природу.</p>
+<ul>
+<li>Де застосовується задача LCS на практиці?</li>
+</ul>
+<p>Пошук плагіату,Автоматична перевірка орфографії,Аналіз версій текстів (diff),Визначення схожості між ДНК або текстами,Порівняння файлів у системах контролю версій.</p>
 </div>
 </div>
 </div>

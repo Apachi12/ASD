@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dzuba_PZ6</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>pr4</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7511,130 +7511,496 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f05bacd7-a5eb-4d7c-ad11-3b91f9a642b3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=682f912d-6d2b-4d2c-be70-c514cffaafa7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0:-%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC-%D0%A4%D0%BB%D0%BE%D0%B9%D0%B4%D0%B0%E2%80%93%D0%A4%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%B0">Задача: Алгоритм Флойда–Форшала<a class="anchor-link" href="#%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0:-%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC-%D0%A4%D0%BB%D0%BE%D0%B9%D0%B4%D0%B0%E2%80%93%D0%A4%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%B0">¶</a></h3><h4 id="%D0%93%D1%80%D0%B0%D1%84-(%D0%B7-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8):">Граф (з картинки):<a class="anchor-link" href="#%D0%93%D1%80%D0%B0%D1%84-(%D0%B7-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8):">¶</a></h4><p>Вершини: {1, 2, 3, 4, 5, 6}<br/>
-Ребра з вагами:</p>
-<ul>
-<li>(1,3) = 4</li>
-<li>(3,6) = 4</li>
-<li>(1,6) = 1</li>
-<li>(1,5) = 11</li>
-<li>(5,6) = 3</li>
-<li>(1,2) = 8</li>
-<li>(2,3) = 5</li>
-<li>(2,4) = 5</li>
-<li>(4,5) = 3</li>
-</ul>
 <hr/>
-<h4 id="%D0%9A%D0%BE%D0%B4-%D0%B4%D0%BB%D1%8F-%D0%B7%D0%BD%D0%B0%D1%85%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BD%D0%B0%D0%B9%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D1%88%D0%B8%D1%85-%D1%88%D0%BB%D1%8F%D1%85%D1%96%D0%B2-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%BC-%D0%A4%D0%BB%D0%BE%D0%B9%D0%B4%D0%B0%E2%80%93%D0%A4%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%B0">Код для знаходження найкоротших шляхів методом Флойда–Форшала<a class="anchor-link" href="#%D0%9A%D0%BE%D0%B4-%D0%B4%D0%BB%D1%8F-%D0%B7%D0%BD%D0%B0%D1%85%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BD%D0%B0%D0%B9%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D1%88%D0%B8%D1%85-%D1%88%D0%BB%D1%8F%D1%85%D1%96%D0%B2-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%BC-%D0%A4%D0%BB%D0%BE%D0%B9%D0%B4%D0%B0%E2%80%93%D0%A4%D0%BE%D1%80%D1%88%D0%B0%D0%BB%D0%B0">¶</a></h4>
+<h2 id="title:-%22%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%E2%84%964.-%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%B8-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83-%D1%82%D0%B0-%D1%97%D1%85-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%96%D1%81%D1%82%D1%8C%22%0Adescription:%0A%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82-%D0%B7%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BD%D0%BE-%D0%B7%D0%B0-%D0%B4%D0%BE%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%BE%D1%8E-Quarto%0Aauthor:-%22%C2%A9-%5B%D0%9C%D1%96%D1%80%D0%B0%D0%BD%D0%B4%D0%B0-%D0%9B%D1%83%D0%BA'%D1%8F%D0%BD%D0%BE%D0%B2%D0%B0-%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD%D1%96%D0%B2%D0%BD%D0%B0-%5D%22%0Adate:-%2229.05.2025%22%0Alang:-ukr%0Aformat:%0Ahtml:%0Acode-fold:-true%0Atoc:-true-%23-%D0%BC%D0%B5%D0%BD%D1%8E%0Atoc_float:-%23-%D1%81%D0%BF%D0%BB%D0%B8%D0%B2%D0%B0%D1%8E%D1%87%D0%B5-%D0%BC%D0%B5%D0%BD%D1%8E%0Acollapsed:-true-%23-%D0%B0%D0%B2%D1%82%D0%BE%0Anumber_sections:-true%0Ajupyter:-python3">title: "Практична робота №4. Алгоритми пошуку та їх складність"
+description:
+Документ зроблено за допомогою <a href="https://quarto.org/">Quarto</a>
+author: "© [<span style="color: blue;">Дзюба Данiiл Андрiйович </span>]"
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b22992ce-54de-47ab-85bd-06c7427e8edd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0c9fb9cf-cf53-4595-9bd0-5fe08e279dec">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="%D0%92%D1%81%D1%82%D1%83%D0%BF">Вступ<a class="anchor-link" href="#%D0%92%D1%81%D1%82%D1%83%D0%BF">¶</a></h1><p><strong>Тема:</strong> Алгоритми пошуку та їх складність</p>
+<p><strong>Мета:</strong> опанувати основні алгоритми пошуку та навчитись методам аналізу їх асимптотичної складності.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be09263e-1af6-479e-87bc-cf78d5f6ca7d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="%D0%A5%D1%96%D0%B4-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8">Хід роботи<a class="anchor-link" href="#%D0%A5%D1%96%D0%B4-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5738d213-5170-468a-8aa3-49bec8b5727b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="1.-%D0%9D%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BE%D1%82%D0%BE%D1%87%D0%B5%D0%BD%D0%BD%D1%8F">1. Налаштування оточення<a class="anchor-link" href="#1.-%D0%9D%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BE%D1%82%D0%BE%D1%87%D0%B5%D0%BD%D0%BD%D1%8F">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=import-libs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Вершини з 1 по 6, індексація з 0 для зручності</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">INF</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span>
-
-<span class="c1"># Матриця ваг ребер (спочатку заповнена INF)</span>
-<span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">INF</span><span class="p">)</span>
-
-<span class="c1"># Відстань від вершини до самої себе 0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1"># Заповнюємо ваги ребер згідно з графом (індексація з 0)</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">]</span>
-
-<span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-    <span class="n">dist</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-
-<span class="c1"># Алгоритм Флойда–Форшала</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
-                <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Матриця найкоротших відстаней між усіма вершинами:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Матриця найкоротших відстаней між усіма вершинами:
-[[         0          8          4         13         11          1]
- [1000000000          0          5          5          8          9]
- [1000000000 1000000000          0 1000000000 1000000000          4]
- [1000000000 1000000000 1000000000          0          3          6]
- [1000000000 1000000000 1000000000 1000000000          0          3]
- [1000000000 1000000000 1000000000 1000000000 1000000000          0]]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=270dd8c2-0659-41b4-97bc-5db0b0543983">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f823d046-8070-4930-a6c6-d40b6ee8b24c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">Контрольні питання<a class="anchor-link" href="#%D0%9A%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">¶</a></h3><ol>
-<li><p><strong>Що таке граф і які головні складові його структури?</strong><br/>
-Граф — це множина вершин і ребер між ними. Основні складові: вершини (ноді), ребра (зв’язки), орієнтованість (або ні), ваги ребер (опційно).</p>
-</li>
-<li><p><strong>Які алгоритми використовуються для пошуку найкоротших шляхів у графах?</strong></p>
+<h2 id="2.-%D0%A0%D0%B5%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%96%D0%B2-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">2. Реалізація алгоритмів пошуку<a class="anchor-link" href="#2.-%D0%A0%D0%B5%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%96%D0%B2-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcabddd5-e891-4bea-bbe4-792974b0837c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%9B%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">Лінійний пошук<a class="anchor-link" href="#%D0%9B%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=linear-search">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Лінійний пошук елемента в списку"""</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">a_list</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=682d877b-442a-43b9-a43a-22b4306a3df2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%91%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">Бінарний пошук<a class="anchor-link" href="#%D0%91%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=binary-search">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bin_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Бінарний пошук у відсортованому списку"""</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">a_list</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">middle</span>
+    <span class="k">elif</span> <span class="n">a_list</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">middle</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bin_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">middle</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0b268daf-f5d0-41bd-9844-86bd32fcec46">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">Тернарний пошук<a class="anchor-link" href="#%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ternary-search">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ternary_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Тернарний пошук у відсортованому списку"""</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">&gt;</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    
+    <span class="n">mid1</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span>
+    <span class="n">mid2</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span>
+    
+    <span class="k">if</span> <span class="n">a_list</span><span class="p">[</span><span class="n">mid1</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mid1</span>
+    <span class="k">if</span> <span class="n">a_list</span><span class="p">[</span><span class="n">mid2</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mid2</span>
+    
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">a_list</span><span class="p">[</span><span class="n">mid1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">ternary_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">a_list</span><span class="p">[</span><span class="n">mid2</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">ternary_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mid2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ternary_search</span><span class="p">(</span><span class="n">a_list</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mid1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mid2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=93bef238-c88b-41e6-aea2-f86891ec7996">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-%D0%90%D0%BD%D0%B0%D0%BB%D1%96%D0%B7-%D0%B0%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D1%97-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D1%96">3. Аналіз асимптотичної складності<a class="anchor-link" href="#3.-%D0%90%D0%BD%D0%B0%D0%BB%D1%96%D0%B7-%D0%B0%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D1%97-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D1%96">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5db20fef-7463-4150-b7c6-16661d21a8a0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1:-%D0%90%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%96%D1%81%D1%82%D1%8C-%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">Завдання 1: Асимптотична складність лінійного пошуку<a class="anchor-link" href="#%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1:-%D0%90%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%96%D1%81%D1%82%D1%8C-%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">¶</a></h3><p><strong>Найгірший випадок:</strong> O(n) - елемент знаходиться в кінці списку або відсутній</p>
+<p><strong>Найкращий випадок:</strong> O(1) - елемент знаходиться на першій позиції</p>
+<p><strong>Покращення:</strong> можна використовувати sentinel search або бар'єрний пошук для зменшення кількості перевірок.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=task2-complexity">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-2:-%D0%90%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%96%D1%81%D1%82%D1%8C-%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">Завдання 2: Асимптотична складність бінарного пошуку<a class="anchor-link" href="#%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-2:-%D0%90%D1%81%D0%B8%D0%BC%D0%BF%D1%82%D0%BE%D1%82%D0%B8%D1%87%D0%BD%D0%B0-%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%96%D1%81%D1%82%D1%8C-%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D1%88%D1%83%D0%BA%D1%83">¶</a></h3><p><strong>Найгірший випадок:</strong> O(log n) - елемент відсутній або знаходиться на останньому рівні поділу</p>
+<p><strong>Найкращий випадок:</strong> O(1) - елемент знаходиться в центрі масиву</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=task3-ternary">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-3:-%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA-%D1%82%D0%B0-%D0%BF%D0%BE%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F-%D0%B7-%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%BC">Завдання 3: Тернарний пошук та порівняння з бінарним<a class="anchor-link" href="#%D0%97%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-3:-%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA-%D1%82%D0%B0-%D0%BF%D0%BE%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F-%D0%B7-%D0%B1%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%BC">¶</a></h3><p><strong>Асимптотична складність тернарного пошуку:</strong></p>
 <ul>
-<li>Алгоритм Дейкстри</li>
-<li>Алгоритм Беллмана–Форда</li>
-<li>Алгоритм Флойда–Форшала</li>
-<li>Алгоритми пошуку в ширину (для графів без ваг)</li>
-<li>Алгоритми А* і інші евристичні</li>
+<li><strong>Найгірший випадок:</strong> O(log₃ n)</li>
+<li><strong>Найкращий випадок:</strong> O(1)</li>
 </ul>
+<p><strong>Порівняння:</strong></p>
+<ul>
+<li>Бінарний: log₂ n порівнянь</li>
+<li>Тернарний: log₃ n ітерацій, але 2 порівняння на ітерацію = 2×log₃ n порівнянь</li>
+</ul>
+<p><strong>Висновок:</strong> Бінарний пошук оптимальніший, оскільки log₂ n &lt; 2×log₃ n</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=comparison-calc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Порівняння теоретичної кількості операцій</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">binary_ops</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">ternary_ops</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Для n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Бінарний пошук: </span><span class="si">{</span><span class="n">binary_ops</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> порівнянь"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Тернарний пошук: </span><span class="si">{</span><span class="n">ternary_ops</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> порівнянь"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Бінарний ефективніший на </span><span class="si">{</span><span class="n">ternary_ops</span><span class="o">/</span><span class="n">binary_ops</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> рази"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=task4-experiment">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="4.-%D0%95%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%B5-%D0%B4%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F">4. Експериментальне дослідження<a class="anchor-link" href="#4.-%D0%95%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%B5-%D0%B4%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=performance-test">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Вимірювання часу виконання функції"""</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="n">result</span>
+
+<span class="c1"># Розміри тестових даних</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">]</span>
+<span class="n">linear_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">binary_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ternary_times</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
+    <span class="c1"># Створення відсортованого списку</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Пошук останнього елемента (найгірший випадок)</span>
+    
+    <span class="c1"># Вимірювання часу для кожного алгоритму</span>
+    <span class="n">time_linear</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">linear_search</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">time_binary</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">bin_search</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time_ternary</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">ternary_search</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">linear_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_linear</span><span class="p">)</span>
+    <span class="n">binary_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_binary</span><span class="p">)</span>
+    <span class="n">ternary_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_ternary</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Результати тестування:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sizes</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n=</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">: Linear=</span><span class="si">{</span><span class="n">linear_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s, Binary=</span><span class="si">{</span><span class="n">binary_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s, Ternary=</span><span class="si">{</span><span class="n">ternary_times</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=plot-results">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Побудова графіків</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">linear_times</span><span class="p">,</span> <span class="s1">'ro-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Лінійний пошук'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">binary_times</span><span class="p">,</span> <span class="s1">'bo-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Бінарний пошук'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">ternary_times</span><span class="p">,</span> <span class="s1">'go-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Тернарний пошук'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Розмір списку'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Час виконання (с)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Порівняння алгоритмів пошуку'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">binary_times</span><span class="p">,</span> <span class="s1">'bo-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Бінарний пошук'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">ternary_times</span><span class="p">,</span> <span class="s1">'go-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Тернарний пошук'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Розмір списку'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Час виконання (с)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Порівняння бінарного та тернарного пошуку'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=task5-sorted">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="5.-%D0%90%D0%BD%D0%B0%D0%BB%D1%96%D0%B7-%D0%B2%D0%BF%D0%BB%D0%B8%D0%B2%D1%83-%D0%B2%D1%96%D0%B4%D1%81%D0%BE%D1%80%D1%82%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE%D1%81%D1%82%D1%96">5. Аналіз впливу відсортованості<a class="anchor-link" href="#5.-%D0%90%D0%BD%D0%B0%D0%BB%D1%96%D0%B7-%D0%B2%D0%BF%D0%BB%D0%B8%D0%B2%D1%83-%D0%B2%D1%96%D0%B4%D1%81%D0%BE%D1%80%D1%82%D0%BE%D0%B2%D0%B0%D0%BD%D0%BE%D1%81%D1%82%D1%96">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=sorted-analysis">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Тестування на відсортованих та невідсортованих даних</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+<span class="n">unsorted_data</span> <span class="o">=</span> <span class="n">sorted_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">unsorted_data</span><span class="p">)</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="n">size</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="c1"># Лінійний пошук працює з будь-якими даними</span>
+<span class="n">time_linear_sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">linear_search</span><span class="p">,</span> <span class="n">sorted_data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">time_linear_unsorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">linear_search</span><span class="p">,</span> <span class="n">unsorted_data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="c1"># Бінарний та тернарний працюють тільки з відсортованими</span>
+<span class="n">time_binary_sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">bin_search</span><span class="p">,</span> <span class="n">sorted_data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">time_ternary_sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">measure_time</span><span class="p">(</span><span class="n">ternary_search</span><span class="p">,</span> <span class="n">sorted_data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Результати для n=</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Лінійний (відсортований): </span><span class="si">{</span><span class="n">time_linear_sorted</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Лінійний (невідсортований): </span><span class="si">{</span><span class="n">time_linear_unsorted</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Бінарний (відсортований): </span><span class="si">{</span><span class="n">time_binary_sorted</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Тернарний (відсортований): </span><span class="si">{</span><span class="n">time_ternary_sorted</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Бінарний та тернарний НЕ працюють з невідсортованими даними!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=task6-scenarios">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="6.-%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D1%96%D1%97-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%96%D0%B2">6. Сценарії використання алгоритмів<a class="anchor-link" href="#6.-%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D1%96%D1%97-%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%96%D0%B2">¶</a></h2><h3 id="%D0%9B%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">Лінійний пошук:<a class="anchor-link" href="#%D0%9B%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">¶</a></h3><ul>
+<li>Малі обсяги даних (n &lt; 100)</li>
+<li>Невідсортовані дані</li>
+<li>Рідкі пошукові запити</li>
+<li>Простота реалізації критична</li>
+</ul>
+<h3 id="%D0%91%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">Бінарний пошук:<a class="anchor-link" href="#%D0%91%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">¶</a></h3><ul>
+<li>Великі відсортовані масиви</li>
+<li>Часті пошукові запити</li>
+<li>Критична швидкість пошуку</li>
+<li>Статичні або рідко змінювані дані</li>
+</ul>
+<h3 id="%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">Тернарний пошук:<a class="anchor-link" href="#%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BF%D0%BE%D1%88%D1%83%D0%BA:">¶</a></h3><ul>
+<li>Спеціальні математичні застосування</li>
+<li>Пошук екстремумів функцій</li>
+<li>Теоретичний інтерес (практично рідко використовується)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=control-questions">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D1%96-%D0%BD%D0%B0-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">Відповіді на контрольні питання<a class="anchor-link" href="#%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D1%96-%D0%BD%D0%B0-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%96-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F">¶</a></h1><p><strong>1. Що таке алгоритм пошуку і чому він важливий?</strong></p>
+<p>Алгоритм пошуку - це послідовність дій для знаходження певного елемента в структурі даних. Важливий для ефективної роботи з великими обсягами інформації.</p>
+<p><strong>2. Основні критерії оцінки ефективності:</strong></p>
+<ul>
+<li>Часова складність (кількість операцій)</li>
+<li>Просторова складність (використання пам'яті)</li>
+<li>Стабільність та простота реалізації</li>
+</ul>
+<p><strong>3. Лінійний пошук:</strong>
+Послідовна перевірка кожного елемента списку від початку до кінця або до знаходження шуканого елемента.</p>
+<p><strong>4. Умови для бінарного пошуку:</strong></p>
+<ul>
+<li>Дані повинні бути відсортовані</li>
+<li>Можливість доступу до елементів за індексом</li>
+</ul>
+<p><strong>5. Переваги бінарного пошуку:</strong></p>
+<ul>
+<li>Швидкість: O(log n)</li>
+<li>Ефективність для великих даних</li>
+</ul>
+<p>Недоліки:</p>
+<ul>
+<li>Потребує відсортованих даних</li>
+<li>Складніша реалізація</li>
+</ul>
+<p><strong>6. Тернарний пошук:</strong>
+Ділить масив на три частини замість двох. Менш ефективний через більшу кількість порівнянь на ітерацію.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=conclusions">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="%D0%92%D0%B8%D1%81%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8">Висновки<a class="anchor-link" href="#%D0%92%D0%B8%D1%81%D0%BD%D0%BE%D0%B2%D0%BA%D0%B8">¶</a></h1><p>У ході виконання практичної роботи було досліджено три алгоритми пошуку:</p>
+<ol>
+<li><p><strong>Лінійний пошук</strong> має складність O(n), універсальний, але неефективний для великих даних.</p>
 </li>
-<li><p><strong>Як працює алгоритм Дейкстри і які його особливості?</strong><br/>
-Алгоритм Дейкстри шукає найкоротший шлях від однієї вершини до всіх інших у графі з невід’ємними вагами ребер, використовуючи жадібний підхід і пріоритетну чергу. Не працює з від’ємними вагами.</p>
+<li><p><strong>Бінарний пошук</strong> має складність O(log n), найефективніший для відсортованих даних.</p>
 </li>
-<li><p><strong>Що таке алгоритм Белмена–Форда і коли його варто застосовувати?</strong><br/>
-Це алгоритм пошуку найкоротших шляхів з однієї вершини, який працює і з від’ємними вагами ребер, і виявляє негативні цикли. Його варто застосовувати, коли є від’ємні ваги.</p>
-</li>
-<li><p><strong>Як працює алгоритм Флойда–Форшала і які його переваги та недоліки?</strong><br/>
-Алгоритм Флойда–Форшала знаходить найкоротші шляхи між усіма парами вершин, використовуючи динамічне програмування. Перевага — універсальність для орієнтованих графів з від’ємними вагами (без циклів з від’ємною сумою). Недолік — висока складність (O(n^3)), тому він не підходить для дуже великих графів.</p>
+<li><p><strong>Тернарний пошук</strong> має складність O(log₃ n), але практично менш ефективний через більшу кількість порівнянь.</p>
 </li>
 </ol>
+<p>Експериментальні дослідження підтвердили теоретичні розрахунки. Бінарний пошук показав найкращу продуктивність для відсортованих даних великого розміру.</p>
+<p>Вибір алгоритму залежить від:</p>
+<ul>
+<li>Розміру даних</li>
+<li>Частоти пошукових запитів</li>
+<li>Відсортованості даних</li>
+<li>Вимог до швидкості виконання</li>
+</ul>
 </div>
 </div>
 </div>
